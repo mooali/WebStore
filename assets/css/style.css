@@ -1,0 +1,116 @@
+header{
+  display: block;
+}
+.header_languages{
+  margin: 0.2px;
+  font-size: 1em;
+}
+
+.header_languages nav ul li{
+  display: inline-block;
+  margin: 0 0.5em;
+  cursor: pointer;
+  float: right;
+}
+
+.header_menu{
+  display: flex;
+  justify-content: center;
+  margin: 0.05em;
+  font-size: 1em;
+  text-align: center;
+  flex-direction: column;
+
+}
+
+
+.header_menu nav ul li{
+  display: inline-block;
+  margin: 0.5em;
+  background-color: white;
+}
+
+
+.header_menu nav ul li a{
+  display: inline-block;
+  margin: 0.015em;
+  letter-spacing: 0.15em;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.header_menu nav ul li a:hover{
+  background: #2421;
+  font-size: 1em;
+}
+
+.banner{
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+footer{
+  background: #123;
+  color: white;
+  text-align: center;
+}
+
+footer p{
+  padding: 2em;
+  color: white;
+}
+
+footer a{
+  color: inherit;
+  letter-spacing: 0.15em;
+  border-bottom: 1px dotted rgba(255,255,255,.4);
+}
+
+.products{
+  padding: 2em;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+
+input{
+  width: 50%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+
+}
+.form_container{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+.form_container_buttons{
+  display: inline-block;
+  width: 100%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form_container_submit{
+  padding: 1em;
+  cursor: pointer;
+
+}
+.form_container_rest{
+  padding: 1em;
+  cursor: pointer;
+}

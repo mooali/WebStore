@@ -1,0 +1,6 @@
+page=Seite
+conent=Willkommen auf der Seite
+products=Meine Produkte
+contact=Kontakt
+home=HOME
+agb=AGB

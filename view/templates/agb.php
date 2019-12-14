@@ -1,0 +1,164 @@
+<h2>General terms and conditions</h2>
+<p>Please note: Only the German original of these General Terms and Conditions of MoMac  AG is legally binding. The English translation is provided for information purposes only and has no legal force. By accepting these General Terms and Conditions, you automatically accept the German original.</p>
+<p>The present general terms and conditions (hereinafter “GTC”) apply to all legal transactions made through the online shops www.MoMac.ch and  (hereinafter individually referred to as “online shop”). Both online shops are operated by MoMac  AG (hereinafter “MoMac ”).
+These general terms and conditions also apply to all legal transactions made within the scope of MoMac ’ merchant programme (hereinafter “merchant programme”). The merchant programme allows selected third-party providers (hereinafter “merchants”) to offer products and services under their own name and sell them to customers via the MoMac  online shops.
+Any second hand products are subject to the General terms and conditions of resale (GTCoR) in addition to or partially instead of the these GTC.
+MoMac  reserves the right to change these GTC at any time. The version of the GTC valid at the time of order placement applies and may not be changed unilaterally for the respective order. Adverse or conflicting terms of the customer will not be recognised.
+The range of products and services available in the online shop, including the scope of the merchant programme, (hereinafter “offer”) is exclusively intended for customers whose place of residence or place of business is Switzerland or Liechtenstein.
+Deliveries are made exclusively to addresses in Switzerland or Liechtenstein.
+Products are available for as long as they can be found through the search engine in the online shop and/or while stocks last.
+Customers confirm compliance with the legal provisions for all product orders with a minimum age requirement of 18 (particularly for alcohol and tobacco products).
+Large orders exceeding a standard amount may be refused without reason.</p>
+
+<h3> Scope of application</h3>
+<h4>2 Information</h4>
+<h5>2.1 Product and price</h5>
+<p>Product images used for advertising, brochures, the online shop etc. are for illustration purposes only and are not binding.
+Product information available through the online shop is compiled to be as customer-friendly as possible but is not binding. Information provided by the manufacturer (e.g. manufacturer warranty) applies, provided that it is valid in Switzerland.
+All prices quoted are net, in Swiss Francs, include value added tax (VAT) and, where applicable, include an advance recycling contribution, packaging costs and delivery costs for the stated delivery time as well as any additional charges and costs. Only the minimum order surcharge – if applicable – is excluded. In addition to the final price, a minimum order surcharge of maximum CHF 9.00 can be charged for order totals of below CHF 50.–. MoMac  and the merchants reserve the right to change prices of products and services at any time. The prices stated in the online shop at the time of order placement apply.
+Any additional services subject to a fee, e.g. installation, disposal, warranty extensions, insurance etc., are listed separately in the shopping cart and on the invoice.
+</p>
+<h5>2.2 Availability and delivery times</h5>
+MoMac  is committed to providing up-to-date and precise information on availability and delivery times in the online shop. However, production and delivery shortages in particular may cause delivery delays for MoMac  as well as for merchants. Therefore, all information on availability and delivery times is subject to change.
+<h5>2.3 Additional services: installation and disposal</h5>
+Installation includes the unpacking and installing of the ordered product including the taking back of packaging.
+Disposal includes the receipt and environmentally sound disposal of the item(s) specified by the customer upon placing his or her order. The item(s) must correspond approximately in type and quantity to the ordered product. The item(s) for disposal must be prepared for transport by the customer and must be ready on the arranged delivery date for the ordered products.
+The costs for installation and disposal are listed separately in the shopping cart and on the invoice.
+<h4>3 Contract conclusion</h4>
+<p>Products and prices stated in the online shop are deemed to constitute offers. However, these offers are always subject to the inability to deliver or incorrect price quotations, both of which lead to contract cancellation.
+A contract for products or services from MoMac  shall be deemed concluded with MoMac  as soon as an order has been placed by the customer in the online shop, at one of our stores, by telephone or e-mail (hereinafter referred to as “contract”).
+For products and services offered by a merchant, the contract is concluded between the merchant and the customer as soon as an order has been placed by the customer in the online shop, at one of our stores, by telephone or e-mail. MoMac  only mediates in the sales and acts as intermediary and service provider for merchants, but does not act as contracting party for the customer.
+Customers can see in the online shop and on the invoice who the supplier or rather the contracting party for any purchase is (either MoMac  or the merchant).
+Customers are informed of their order placement by means of an automatically generated order confirmation by MoMac , which is sent to the e-mail address provided by the customer. The receipt of the automatically generated order confirmation does not constitute a commitment that the product will be delivered. It solely notifies the customer that the placed order was received by the online shop and a contract was therefore concluded with MoMac  or the merchant under condition of deliverability and correct price quotation.</p>
+<h4>4 Delivery date</h4>
+<p>Together with the confirmation, the customer is either provided with a provisional delivery date or is contacted so that an individual delivery date can be arranged.
+If delivery by MoMac  or the merchant is delayed, customers are entitled to withdraw from the contract (with the exception of special orders) as of the 30th calendar day from the originally scheduled delivery date. In such an event, MoMac  will refund the customer any amount paid in advance. No further claims towards MoMac  or the merchant apply.
+<h4>5 Delivery/In-store collection</h4>
+For products and services by MoMac , all delivery and collection options described under “Delivery and collection” in the online shop are available to the customer.
+Products and services purchased from a merchant can only be shipped to a customer and cannot be collected.
+The delivery address in Switzerland or Liechtenstein must be easily accessible by truck. Should this not be the case, the customer shall bear any consequential costs.
+If the customer chooses the option “delivery to place of use”, it is the customer’s responsibility to ensure the place of use is accessible. The customer must verify that the product fits through any entrances, for instance staircases, doors etc. If the products cannot be transported to the place of use, the customer must bear any additional charges.
+Should the customer refuse to accept the ordered products on the arranged or provided delivery date, MoMac  or the merchant may withdraw from the contract (cancellation) and charge the customer for the delivery costs and any loss of value.
+If the customer does not collect the ordered products from one of our stores (in-store collection) within 14 calendar days from the arranged date, MoMac  may withdraw from the contract (cancellation).</p>
+<h4>6 Customer obligation to inspect products</h4>
+<p>Customers are obliged to immediately inspect the delivered or collected products for correctness, completeness and potential transport damage.
+If the delivery is carried out by a service partner, the customer must state the defect on the delivery note.
+The customer shall inform MoMac  of any defects, or false or incomplete deliveries, immediately after detection thereof and within five calendar days after receipt of the delivery/collection at the latest. This also applies to products and services by merchants. The customer is aware that this information needs to be given via the section “Returns and warranty” in his/her personal customer account. The customer must retain the product in the condition it was delivered in and may not use it. The customer must follow the instructions for the returns process as described in “Returns and warranty” in the personal customer account.
+</p>
+<h4>7 Warranty</h4>
+<h5>7.1 Basic provisions</h5>
+<p>MoMac  or the merchant warrant for two years from delivery date or in-store collection that the ordered product will be free from defects and fully functional. This warranty period continues to be valid irrespective of the fulfilment of possible warranty services. MoMac  or the merchant shall provide warranty either by
+repairing the product free of charge (original warranty period continues to apply to the entire product);
+providing a partial or full replacement with an equivalent product (for replacement within the first year of warranty, the original warranty period continues to apply. For replacement within the second year of warranty, the warranty period is one year starting from the time of replacement);
+replacing the product through MoMac  (the warranty period of two years starting from the time of replacement applies)
+providing a refund at current price (no more than the sales price at the time of the original order); or
+giving a price reduction.
+MoMac  or the merchant explicitly exclude warranty for wear and tear parts such as batteries, rechargeable batteries, adapters, bulbs and for software problems. Otherwise, liability exclusion pursuant to point 8 applies.
+Provided that the manufacturer warranty exceeds the warranty of MoMac  or the merchant, MoMac  or the merchant shall grant the former to the customer.
+When returning a data carrier or a product containing data storage to MoMac  or the merchant, a total loss of data must be expected. It is the customer’s responsibility to ensure an appropriate data backup is carried out beforehand and that the data is protected. Neither MoMac  nor the merchant assume liability for potential loss of data.
+While the warranty claim is being processed, both MoMac  and the merchant may, at their own discretion, provide the customer with a replacement device (replacement subject to reservation). This shall apply on condition (precedent) that a warranty claim actually exists. Therefore, the customer only gains ownership of the replacement product at the time of promise of guarantee by MoMac  or the merchant. If the warranty claim is rejected by MoMac  or the merchant, the customer may purchase the replacement product at retail value at the time of delivery or is obliged to return the replacement device at his or her own expense.
+All further-reaching and in particular the legal provisions for warranty are excluded.</p>
+<h5>7.2 Additional provisions for used goods</h5>
+<p>Other provisions apply to products that are marked as “display product”, “refurbished”, “test device”, “repair” or “showroom product”. They may show minor visual flaws or be restored products. These visual flaws are not covered by the warranty and are stated accordingly in the article details. In all other respects, a warranty period of one year from delivery or in-store collection applies to these products.
+The customer is aware of the fact that he or she is purchasing a used electronic product that may contain personal data of the previous owner/user and that no liability is assumed by MoMac  or the merchant.
+</p>
+<h5>7.3 Warranty extension</h5>
+<p>Customers may purchase a warranty extension for additional 12 to 36 months. A warranty extension prolongs the existing warranty. A warranty extension can be concluded upon purchasing a product or until the existing warranty has expired.
+The duration of the warranty extension shall continue irrespective of the provision of any warranty services. MoMac  may offer the warranty service by either of the following:
+free repair (original warranty continues for the entire product);
+partial and complete replacement with an equivalent used/repaired product (in case of replacement, the warranty period is one year starting from the date of replacement);
+replacement with a new product by MoMac  (new warranty period of two years starting from date of replacement);
+refund at the current value of the purchased product. This being 80% of the original purchase price for the third year, 60% for the fourth year and 40% for the fifth year)
+In the case of warranty extensions with the «Pick-up & Return» option, an appointment is made and the device is collected from and delivery to the customer address. The device must be packaged appropriately and ready for collection at the agreed time. General cargo shipments can only be picked up and delivered from the curbside.
+</p>
+<h5>7.4 Warranty extension / Express replacement service</h5>
+<p>Customers may add an express replacement service to a warranty extension. The express replacement service is available for two, three or five years and means there is no waiting for a faulty device to be repaired as you will immediately be presented with a solution. In addition, MoMac  pays the delivery costs for the return of the defective product. The defective product will be replaced by a new, equivalent product within one working day after receipt at a MoMac  store or central warehouse or the purchase price will be refunded taking into account the current value of the purchased product and depending on the duration of the warranty. The current value is 100% of the original purchase price for the first year, 100% for the second year, 80% for the third year, 60% for the fourth year and 40% for the fifth year. In case of replacement, the new warranty period is two years starting from date of replacement. The express replacement service only applies to one product at a time and can be acquired up to 30 days after the purchase of the product at the latest.
+</p>
+<h4>8 Liability and exclusion of liability</h4>
+<p>Liability is based on the applicable legal provisions. However, in no event shall MoMac  or the merchant be liable for (i) slight negligence, (ii) indirect and consequential damage and subsequent damage and loss of profit, (iii) unrealised savings, or (iv) damage resulting from delivery delay, or (v) any acts and omissions on the part of auxiliary persons of MoMac  or the merchant, be this contractual or non-contractual.
+Moreover, MoMac  or the merchant will not accept any liability in the following cases:
+storage, setting or use of products that is improper, unlawful or contrary to contract;
+use of incompatible spare parts or accessories (e.g. power supply);
+failure to maintain and/or improper modification or repair of the products by our clients or a third party;
+force majeure, particularly natural hazards, moisture, shock and impact etc. that are not caused by MoMac  or official orders.
+The commissioned service provider is liable for any defects, performance delay and damage caused during the execution of services (e.g. on-site installation).
+</p>
+<h4>9 Payment</h4>
+<h5>9.1 Payment methods</h5>
+<p>MoMac  claims all payments for products and services purchased on the MoMac  online shops directly from the customer. Merchants assign any payment claims resulting from the purchase contract between the merchant and the customer to MoMac  (cession). The customer acknowledges this cession and is obliged to make payments to MoMac  only.
+Payment must be made in Swiss Francs.
+Cash payment is possible for in-store collection of products from MoMac  only. Products and services by merchants cannot be collected in-store and thus cannot be paid for in cash.
+Payment methods available to customers for the online shop are listed under “Payment methods”.
+The current fees can also be viewed under “Payment methods” and are given in detail in the ordering process.
+When paying by credit card or other instant payment methods, the amount is debited at the time of order.
+In case of prepayment, delivery is made only after receipt of the payment. The products in stock at the MoMac  main warehouse are reserved until the expiration of the payment term, which is at least 19 calendar days. This also applies to products that are ordered from an external source, but processed and shipped in our warehouse. Products that are delivered to customers directly by a merchant or an external distributor are only ordered upon receipt of payment.
+For fee-based purchases on account (only possible for products from MoMac ), customers are obliged to settle the invoiced amount within 20 calendar days of receiving the delivery without any (discount) deduction. In the event of a partial return of the delivered products, the invoiced amount may be reduced accordingly.
+</p>
+<h5>9.2 Delay of payment</h5>
+<p>Should customers fail to settle their payment obligations in whole or in part, all outstanding amounts owed to MoMac  for any purchases become immediately due (within 8 calendar days from the first reminder for prepayments). MoMac  may request immediate payment and suspend any further product deliveries to the customer.
+MoMac  levies an administrative charge of CHF 5.– from the second reminder and CHF 20.– from the third reminder. Should the reminders be unsuccessful, the invoiced amount may be contracted to a collection agency. In such an event, an additional effective annual interest rate of up to 15% may be invoiced for the owed amount as from the due date of payment. The agency contracted with the collection of the owed amounts claims the amount on its own behalf and on its own account and may levy additional service charges.
+</p>
+<h5>9.3 Reservation of ownership</h5>
+<p>All ordered products remain the property of MoMac  or the merchant until payment is received in full. MoMac  or the merchant is entitled to make an entry in the register for reservation of ownership. Without the express consent of MoMac , no pledging, transferring of security, processing or modification is permitted prior to transfer of ownership.
+
+10 Order change or cancellation
+Order placement obliges the customer to accept the products and services. MoMac  or the merchant may, at its own discretion, accept subsequent order changes or cancellations by the customer and invoice an inconvenience charge of 20% of the cancelled order value, but no less than CHF 60.–, as well as any value loss of the ordered products.
+In the event of (partial) inability to deliver (condition leading to termination) after order placement or contract conclusion pursuant to point 3, the customer is immediately informed by e-mail. If the customer has already made the payment, the amount is refunded. If no payment has been made, the customer is exempted from the obligation to pay the amount due. Further claims for delivery delay or delivery failure are excluded.
+11 Returning non-defective products
+According to the conditions listed in the Return policy, MoMac  and all merchants grant the right to return ordered products within a maximum of 30 calendar days, or for products from third parties within a maximum of 14 calendar days, from their dispatch or collection.
+Customers must register the return of a product in their personal customer account under the section “Returns and warranty” on  or www.MoMac.ch and return it according to the instructions given. The products, together with all accessories, must be properly packed and returned in their original packaging. Damaged products cannot be returned or will be fully invoiced to the customer, respectively.
+It is the customer’s responsibility and obligation to delete all personal data stored on the product before transferring ownership to MoMac  or the merchant. MoMac  and their service partners retain the right to carry out additional deletions/resets to the product and delete any personal data. A total loss of data must be expected. MoMac  assumes no liability for any third-party access, use, editing or ownership of any remaining data stored on the product.
+Should customers exercise their right of return according to the above-mentioned return conditions, MoMac  shall refund the total purchase price with the exception of any minimum order surcharge paid.
+</p>
+<h4>12 Repairs outside of the warranty</h4>
+<p>
+All repair costs incurred outside of the warranty pursuant to point 7 shall be borne by the customer. MoMac  or the merchant reserves the right to invoice the customer for the examination of the defect claimed as well as for shipping fees for all devices showing no detectable defects or defects that are not covered by the warranty pursuant to point 7.
+</p>
+<h4>13 Delivery and Returns to a PickMup site</h4>
+<h5>13.1 Delivery to a PickMup site</h5>
+<p>
+It is possible to have orders from MoMac  delivered to a pre-defined branch of another business within the Migros Group. The customer can select the PickMup site as their place of delivery. The choice of available sites depends on the content of the cart.
+After the parcel has been delivered to the PickMup site, the customer receives a pick-up invitation that includes a collection voucher. The collection voucher is considered a means of identification and must be presented when the parcel is collected. It could for example take the form of a printed e-mail or a digital version of the collection voucher (SMS, e-mail on your smartphone). The customer can also present only the collection code. No additional proof of identity is required. Without this collection voucher, the parcel cannot be handed over to the customer. The PickMup site validates the collection voucher electronically. This serves as proof of collection. The customer is requested to confirm the pick-up by signature as well. Any liability for damages incurred by the customer due to loss, theft or misuse, etc. in connection with the pick-up process and the collection voucher is expressly excluded.
+If the customer does not collect the order within the given time limit, it will be returned to the online store sender. The customer is solely responsible for orders picked up late. The customer can arrange for an extension of the time limit for pick-up via the provider's customer service.
+Products and services by merchants cannot be delivered to PickMup sites.
+</p>
+<h5>13.2 Returns to a PickMup site</h5>
+<p>
+Orders from MoMac  can be returned to a PickMup site. There are no charges for the customer if returns are processed through a PickMup site. The PickMup site has the right not to accept returns for reasons of size restrictions. Returns must be packaged appropriately for dispatch by mail and labelled with the correct return address. If these conditions are not met, the PickMup site is under no obligation to accept the return.
+The PickMup site does not examine the contents of the parcel and cannot provide any information regarding returns or the relevant process. It merely acts as a parcel collection point. No refunds of the purchase price are made at the PickMup site.
+The customer receives a copy of the post office Track & Trace bar code, which can be used to track the shipment and which serves as a receipt. He/she will be notified by the service provider once the return has been examined in the logistics centre.
+Products and services from merchants cannot be returned to a PickMup site.
+</p>
+<h4>14 Community</h4>
+<p>
+By publishing comments and posts in our community, the author confirms to agree with the MoMac  Community terms and conditions.
+</p>
+<h4>15 Further provisions</h4>
+<h5>15.1 Non-allocatable returns</h5>
+<p>Returns that cannot be allocated or returned to a customer are retained for six months by MoMac  or the merchant before being disposed of.
+</p>
+<h5>15.2 Uncollected or undeliverable warranty goods</h5>
+<p>
+If a customer fails to collect goods connected to our warranty service (pursuant to point 7) from one of our stores within six months after receiving the collection note, or the goods cannot be returned to the customer, MoMac  is entitled to use and, in particular, to dispose of the respective item.
+</p>
+<h5>15.3 Data privacy protection</h5>
+<p>
+The privacy statement is an integral part of these GTC. By accepting these GTC, customers also agree to the privacy statement.
+</p>
+<h5>15.4 Partial invalidity</h5>
+<p>
+Should individual terms of these GTC be invalid or void, the validity of the other provisions of these GTC are not affected by this.
+</p>
+<h5>15.5 Place of jurisdiction and applicable law</h5>
+<p>
+All legal relations between MoMac  and customers as well as between merchants and customers are subject to substantive Swiss law. The United Nations Convention on Contracts for the International Sale of Goods (CISG) does not apply.
+The following exclusive places of jurisdiction apply:
+For any claims resulting from purchase contracts in which one party is MoMac : For claims by consumers, the place of jurisdiction that applies is Zurich or the consumer’s place of residence. In any other case, the exclusive place of jurisdiction is Zurich.
+For any claims resulting from purchase contracts in which one party is a merchant: For claims by consumers, the place of jurisdiction that applies is the merchant’s domicile or the consumer’s place of residence. In any other case, the exclusive place of jurisdiction is the merchant’s domicile.
+</p>
+<h5>15.6 Copyright notice</h5>
+<p>
+All rights to these GTC, particularly copyrights, are reserved by MoMac .
+All reproduction, distribution or other use is prohibited except with written permission from MoMac . In the event of breach of this requirement, MoMac  reserves the right to take legal action.
+March 2019
+</p>
