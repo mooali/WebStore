@@ -18,8 +18,8 @@ class View {
 		}
 
 		$title = $this->controller->getTitle();
-		$title = "MVC" . ($title ? " - ".$title : "");
-		
+		$title = "MoMac" . ($title ? " - ".$title : "");
+
 		include __DIR__ ."/templates/main.php";;
 	}
 }

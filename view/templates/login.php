@@ -1,7 +1,8 @@
 <section class="form login--form">
     <div class="form_container">
       <h3>Login</h3>
-        <form id="loginForm" method="post">
+        <?php echo isset($message) ? "<h5>".$message."</h5>" : ""; ?>
+        <form id="loginForm" action="index.php?action=login" method="post">
           <p><label for="userName">User Name</label>
           <input type="text" class="form_container_input" placeholder="Username" maxlength="250" name="name" required></p>
           <p><label for="password">Password</label>
@@ -11,7 +12,7 @@
             <button type="reset" class="form_container_rest">Reset</button>
             <button type="submit" name="submit" class="form_container_submit">Submit</button>
           </span>
-          <p class="form_container_rege">You don't have an account? <a href="register.php">register now</a> </p>
+          <p class="form_container_rege">You don't have an account? <a href="index.php?action=register">register now</a> </p>
         </form>
       </div>
 </section>

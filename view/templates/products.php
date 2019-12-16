@@ -8,7 +8,13 @@
 
   	foreach($products as $product) {
   		$id = $product->getId();
-  		echo "<span class=\"product\">$product</span> <a href=\"index.php?action=edit_product&id=$id\">Edit</a> | <a href=\"index.php?action=delete_product&id=$id\">Delete</a><br/>";
+			 if ($this->controller->isLoggedIn()) {
+				 echo "<span class=\"product\">$product</span> <a href=\"index.php?action=edit_product&id=$id\">Edit</a> | <a href=\"index.php?action=delete_product&id=$id\">Delete</a><br/>";
+			 }
+			 else {
+				 echo "<span class=\"product\">$product</span><br/>";
+			 }
+
   	}
   }
 	?>

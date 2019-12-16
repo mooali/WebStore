@@ -1,15 +1,10 @@
-<h2>Edit Student</h2>
+<h2>Edit Product</h2>
 <form method="post" action="index.php">
-	<p><label>Firstname</label><input name="student[firstname]" value="<?php echo $student->getFirstname()?>"/></p>
-	<p><label>Lastname</label><input name="student[lastname]" value="<?php echo $student->getLastname()?>"/></p>
-	<p><label>Semester</label><input name="student[semester]" value="<?php echo $student->getSemester()?>" type="number"/></p>
-	<p><label>Project</label><select name="student[project_id]">
-		<?php foreach ($projects as $project) {
-			$selected = $project->getId() == $student->getProjectId() ? ' selected="selected"' : '';
-			printf('<option value="%d"%s>%s</option>', $project->getId(), $selected, $project->getTitle());
-		}?>
-	</select></p>
+	<p><label>Product Name</label><input name="product[name_de]" value="<?php echo $product->getName_de()?>"/></p>
+	<p><label>Product Desc</label><input name="product[desc_de]" value="<?php echo $product->getDesc_de()?>"/></p>
+	<p><label>Product Type</label><input name="product[type]" value="<?php echo $product->getType()?>"/></p>
+	<p><label>Product Price</label><input name="product[price]" value="<?php echo $product->getPrice()?>" type="double"/></p>
 	<p><input type="submit" value="Save"></p>
-	<input type="hidden" name="student[id]" value="<?php echo $student->getId()?>" />
-	<input type="hidden" name="action" value="update_student" />
+	<input type="hidden" name="product[id]" value="<?php echo $product->getId()?>" />
+	<input type="hidden" name="action" value="update_product" />
 </form>

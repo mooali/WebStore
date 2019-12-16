@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>WebShop</title>
+    <title><?= $title ?></title>
   </head>
   <body>
     <header>
@@ -23,8 +23,9 @@
           <ul>
             <li> <a href="index.php?action=home">Home</a> </li>
             <li> <a href="index.php?action=products">Products</a></li>
-            <li> <a href="index.php?action=login">Login</a> </li>
-            <li> <a href="agb.php" target="_blank">AGB</a> </li>
+            <li> <a href="index.php?action=agb" target="_blank">AGB</a> </li>
+            <?php if (!$this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=login\">Login</a></li>"; ?>
+            <?php if ($this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=logout\">Logout</a></li>"; ?>
           </ul>
         </nav>
       </div>

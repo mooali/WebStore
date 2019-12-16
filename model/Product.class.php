@@ -11,6 +11,7 @@ class Product {
   private $type;
   private $image;
   private $price;
+  private $chf = "CHF";
 
 
   function __construct()
@@ -52,6 +53,11 @@ class Product {
 		return $this->type;
 	}
 
+  public function getDesc_de() {
+    return $this->desc_de;
+  }
+
+
 
   static public function getProductById($id) {
   $id = (int) $id;
@@ -72,25 +78,24 @@ static public function delete($id){
 
 }
 
-public function update($id) {
+public function update($values) {
   $db = DB::getInstance();
   $this->name_de = $db->escape_string($values['name_de']);
   $this->desc_de = $db->escape_string($values['desc_de']);
   $this->type = $db->escape_string($values['type']);
-  $this->image = $db->escape_string($values['image']);
   $this->price = (double)$values['price'];
 }
 
 
 public function save(){
-  $sql = sprintf("UPDATE products SET name_de='%s', desc_de='%s', type='%s', ='%s', image='%s', price=%d WHERE id= %d;",$this->name_de, $this->desc_de, $this->type, $this->image_de, $this->price);
+  $sql = sprintf("UPDATE products SET name_de='%s', desc_de='%s', type='%s', price=%d WHERE id= %d;",$this->name_de, $this->desc_de, $this->type, $this->price, $this->id);
   $res = DB::doQuery($sql);
   return $res != null;
 }
 
 
   public function __toString(){
-  return sprintf("%d) %s, %s, %s", $this->id, $this->getName_de(), $this->desc_de, $this->type);
+  return sprintf("%d) %s, %s, %s, %d %s", $this->id, $this->getName_de(), $this->desc_de, $this->type, $this->price, $this->chf);
 }
 
 }

@@ -8,7 +8,6 @@ class Controller {
 	// A C T I O N S
 
 	public function home(Request $request) {
-		$this->data["message"] = "Hello World!";
 		$this->title = "Home";
 	}
 
@@ -18,9 +17,11 @@ class Controller {
 	}
 
 	public function login(Request $request) {
-		$login = $request->getParameter('login', '');
-		$pw = $request->getParameter('pw', '');
-		if (!User::checkCredentials($login, $pw)) {
+		$this->title = "Login";
+		$login = $request->getParameter('name', '');
+		$pwd = $request->getParameter('password', '');
+		$this->data["message"] = "";
+		if (!User::checkCredentials($login, $pwd)) {
 			$this->data["message"] = "Upps das passt nicht ganz....";
 			return;
 		}
@@ -38,13 +39,7 @@ class Controller {
 		return 'home';
 	}
 
-	public function list_students(Request $request) {
-		//$sort = isset($_GET['sort']) ? $_GET['sort'] : 'id';
-		$sort = $request->getParameter('sort', 'id');
-		$this->data["students"] = Student::getStudents($sort);
 
-
-	}
 
 	public function edit_product(Request $request) {
 		if (!$this->isLoggedIn()) {
@@ -52,37 +47,17 @@ class Controller {
 			return 'login';
 		}
 
+
+
 		$id = $request->getParameter('id', 0);
-		$student = Student::getStudentById($id);
-		if (!$student) {
+		$product = Product::getProductById($id);
+		if (!$product) {
 			return $this->page404();
 		}
-		$this->data["student"] = $student;
-		$this->data["projects"] = Project::getProjects();
-
-		$this->title = $student->getLastname();;
+		$this->data["product"] = $product;
+		$this->title = $product->getName_de();
 	}
 
-	public function update_student(Request $request) {
-		if (!$this->isLoggedIn()) {
-			$this->data["message"] = "Please login to update a student!";
-			return 'login';
-		}
-
-		$values = $request->getParameter('student', array());
-		$student = Student::getStudentById($values['id']);
-		if (!$student) {
-			return $this->page404();
-		}
-		$student->update($values);
-		$student->save();
-		$this->data["message"] = "Student updated successfully!";
-
-		return $this->externalRedirect('index.php?action=products');
-
-		//return $this->internalRedirect('list_students', $request);
-
-	}
 
 	public function __call($function, $args) {
 		throw new Exception("The action '$function' does not exist!");
@@ -90,7 +65,7 @@ class Controller {
 
 // Mo
 	public function products(){
-
+		$this->title = "Products";
 		$this->data["products"] = Product::getAllProducts();
 
 	}
@@ -110,14 +85,18 @@ class Controller {
 			//return $this->internalRedirect('products', $request);
 	}
 
+
+
+	//Edit products
 	public function update_product(Request $request) {
+		$this->title = "Edit Product";
+
 		if (!$this->isLoggedIn()) {
-			$this->data["message"] = "Please login to update a student!";
+			$this->data["message"] = "Please login to update a product!";
 			return 'login';
 		}
-
 		$values = $request->getParameter('product', array());
-		$student = Product::getStudentById($values['id']);
+		$product = Product::getProductById($values['id']);
 		if (!$product) {
 			return $this->page404();
 		}
@@ -127,9 +106,92 @@ class Controller {
 
 		//$this->externalRedirect('index.php?action=list_students');
 
-		return $this->internalRedirect('list_students', $request);
+		return $this->internalRedirect('products', $request);
+	}
+
+
+	public function signupUser(Request $request){
+
+		$values = $request->getParameter('user', array());
+		$user = User::insert($values);
+		if (!$user) {
+					 return $this->page404();
+				 }
+		$this->data['message'] = "User created successfully!";
+		return 'home';
+	}
+
+	public function register(Request $request) {
+		$this->title = "signup";
+	}
+
+
+	public function delete_user(Request $request)
+	{
+			$id = $request->getParameter('id', 0);
+			$user = User::getUserById($id);
+			if (!$user) {
+					return $this->page404();
+			}
+			$user = User::delete($id);
+			//external redirect
+			header('Location: index.php?action=list_users');
+			exit();
+	}
+
+
+
+    public function isAdmin()
+    {
+        $this->startSession();
+        if (!isset($_SESSION['type'])) {
+            return false;
+        } else {
+            return $_SESSION['type'] == 'admin';
+        }
+    }
+
+
+	public function list_users(Request $request)
+	{
+			if (!$this->isAdmin()) {
+					$this->data['message'] = "To update a User, please login first!";
+					return 'login';
+			}
+			$sort = $request->getParameter('sort', 'id');
+			$this->data["users"] = User::getUser($sort);
+	}
+
+
+
+
+	public function edit_user(Request $request)
+	{
+			/* if (!$this->isAdmin()) {
+					 $this->data['message'] = "To edit a User, please login first!";
+					 return 'login';
+			 }*/
+			$id = $request->getParameter('id', 0);
+			$user = User::getUserById($id);
+			if (!$user) {
+					return $this->page404();
+			}
+			$this->data['user'] = $user;
+	}
+
+
+
+
+
+
+
+	public function agb(){
+		$this->title = "AGB";
 
 	}
+
+
+
 
 
 
