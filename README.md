@@ -1,3 +1,2 @@
 # WebStore
-Webstore is a project for the module "Web programming" 
-HTML - CSS - PHP - Javascript - Mysql
+Webstore is a project for the module "Web programming" ---using---> HTML - CSS - PHP - Javascript - Mysql
