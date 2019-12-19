@@ -23,9 +23,11 @@
           <ul>
             <li> <a href="index.php?action=home">Home</a> </li>
             <li> <a href="index.php?action=products">Products</a></li>
-            <li> <a href="index.php?action=agb" target="_blank">AGB</a> </li>
+            <?php if($this->controller->isLoggedIn()) echo "<li> <a href=\"index.php?action=list_users\">Users</a></li>"; ?>
             <?php if (!$this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=login\">Login</a></li>"; ?>
             <?php if ($this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=logout\">Logout</a></li>"; ?>
+            <li> <a href="index.php?action=agb" target="_blank">AGB</a> </li>
+
           </ul>
         </nav>
       </div>

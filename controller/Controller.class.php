@@ -43,7 +43,7 @@ class Controller {
 
 	public function edit_product(Request $request) {
 		if (!$this->isLoggedIn()) {
-			$this->data["message"] = "Please login to edit a student!";
+			$this->data["message"] = "Please login to edit a product!";
 			return 'login';
 		}
 
@@ -141,26 +141,47 @@ class Controller {
 
 
 
+/*	public function user_Profile(Request $request)
+{
+		if (!$this->isLoggedIn()) {
+				$this->data['message'] = "To update a User, please login first!";
+				return 'login';
+		}
+		$this->title = "Profile";
+		$this->data["message"] = "Hello World!";
+}
+*/
+
+
+
     public function isAdmin()
     {
-        $this->startSession();
-        if (!isset($_SESSION['type'])) {
-            return false;
-        } else {
-            return $_SESSION['type'] == 'admin';
+				$this->startSession();
+				if(!isset($_SESSION['user']) && !$_SESSION['type'] == 'admin'){
+					return false;
+				}
+				else {
+            return isset($_SESSION['type']) =='admin';
         }
     }
 
 
+
+
 	public function list_users(Request $request)
 	{
-			if (!$this->isAdmin()) {
-					$this->data['message'] = "To update a User, please login first!";
-					return 'login';
-			}
+		/*	if (!$this->isAdmin()) {
+            $this->data['message'] = "To update a User, please login first!";
+            return 'login';
+        }
+				*/
 			$sort = $request->getParameter('sort', 'id');
 			$this->data["users"] = User::getUser($sort);
 	}
+
+
+
+
 
 
 
@@ -178,6 +199,35 @@ class Controller {
 			}
 			$this->data['user'] = $user;
 	}
+
+
+
+
+
+
+
+
+	public function update_user(Request $request)
+{
+		/* if (!$this->isAdmin()) {
+				 $this->data['message'] = "To update a User, please login first!";
+				 return 'login';
+		 }*/
+		$values = $request->getParameter('user', array());
+		$user = User::getUserById($values['id']);
+		if (!$user) {
+				return $this->page404();
+		}
+		$user->update($values);
+		$user->save();
+		$this->data['message'] = "User updated successfully!";
+		//return 'list_students';
+		// external redirect
+		//header('Location: index.php?action=list_students');
+		//exit();
+		//internal page redirect
+		return $this->internalRedirect('list_users', $request);
+}
 
 
 

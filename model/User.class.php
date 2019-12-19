@@ -105,7 +105,7 @@ class User
 
 	public function save()
 	{
-			$sql = sprintf("UPDATE users SET username='%s', email='%s', pwd='%s', type='%s' WHERE id = %d;", $this->username, $this->email, $this->pwd, $this->type, $this->ID);
+			$sql = sprintf("UPDATE users SET username='%s', email='%s', pwd='%s', type='%s' WHERE id = %d;", $this->username, $this->email, $this->pwd, $this->type, $this->id);
 			$res = DB::doQuery($sql);
 			return $res != null;
 	}
