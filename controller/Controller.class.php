@@ -6,7 +6,6 @@ class Controller {
 	private $title = '';
 
 	// A C T I O N S
-
 	public function home(Request $request) {
 		$this->title = "Home";
 	}
@@ -16,24 +15,30 @@ class Controller {
 		$this->title = "Contact";
 	}
 
-	public function login(Request $request) {
-		$this->title = "Login";
-		$login = $request->getParameter('name', '');
-		$pwd = $request->getParameter('password', '');
-		$this->data["message"] = "";
-		if (!User::checkCredentials($login, $pwd)) {
-			$this->data["message"] = "Upps das passt nicht ganz....";
-			return;
+	public function login(Request $request)
+	{
+			$login = $request->getParameter('name', '');
+			$pwd= $request->getParameter('password', '');
+			$user = User::checkCredentials($login, $pwd);
+			if ($user == null) {
+				$this->data["message"] = "Upps das passt nicht ganz....";
+				return;
+			}
+			$this->startSession();
+			$_SESSION['user'] = $login;
+			$_SESSION['type'] = $user->getType();
+			$this->data["message"] = "Hi " . ucfirst($login) . " you just logged in!";
+			return 'home';
 		}
-		$this->startSession();
-		$_SESSION['user'] = $login;
-		$this->data["message"] = "Hi " . ucfirst($login) . " you just logged in!";
-		return 'home';
-	}
+
+
+
+
 
 	public function logout(Request $request) {
 		$this->startSession();
 		session_destroy();
+		unset($_SESSION['user']);
 		$_SESSION = array();
 		$this->data["message"] = "Und Tschüsss!";
 		return 'home';
@@ -42,12 +47,6 @@ class Controller {
 
 
 	public function edit_product(Request $request) {
-		if (!$this->isLoggedIn()) {
-			$this->data["message"] = "Please login to edit a product!";
-			return 'login';
-		}
-
-
 
 		$id = $request->getParameter('id', 0);
 		$product = Product::getProductById($id);
@@ -68,6 +67,11 @@ class Controller {
 		$this->title = "Products";
 		$this->data["products"] = Product::getAllProducts();
 
+	}
+
+	public function notebooks(){
+		$this->title = "Notebooks";
+		$this->date["notebooks"] = Product::getNotebook();
 	}
 
 
@@ -154,34 +158,25 @@ class Controller {
 
 
 
-    public function isAdmin()
-    {
-				$this->startSession();
-				if(!isset($_SESSION['user']) && !$_SESSION['type'] == 'admin'){
-					return false;
-				}
-				else {
-            return isset($_SESSION['type']) =='admin';
-        }
-    }
+public function isAdmin()
+{
+		$this->startSession();
+		if(!isset($_SESSION['type'])){
+				return false;
+		} else{
+				return $_SESSION['type']=='admin';
+		}
+}
+
 
 
 
 
 	public function list_users(Request $request)
 	{
-		/*	if (!$this->isAdmin()) {
-            $this->data['message'] = "To update a User, please login first!";
-            return 'login';
-        }
-				*/
 			$sort = $request->getParameter('sort', 'id');
 			$this->data["users"] = User::getUser($sort);
 	}
-
-
-
-
 
 
 
@@ -230,15 +225,34 @@ class Controller {
 }
 
 
-
-
-
-
-
 	public function agb(){
 		$this->title = "AGB";
 
 	}
+/////////////////////////////////////////////
+//CART
+
+
+public function shoppingCart(){
+	$this->startSession();
+
+	return "shopping_cart";
+}
+
+public function delete_item(Request $request)
+{
+		$id = $request->getParameter('id', 0);
+		$product = Product::getProductById($id);
+		if (!$user) {
+				return $this->page404();
+		}
+		$product = item::removeItem($id);
+		//external redirect
+		header('Location: index.php?action=list_users');
+		exit();
+}
+
+
 
 
 

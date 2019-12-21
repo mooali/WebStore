@@ -37,7 +37,7 @@ header{
   letter-spacing: 0.15em;
   color: #333;
   font-size: 0.9em;
-}
+  }
 
 .header_menu nav ul li a:hover{
   background: #2421;
@@ -72,10 +72,10 @@ footer a{
 
 .products{
   padding: 2em;
-  margin: 10px auto;
   cursor: pointer;
-}
+  display: block;
 
+}
 
 input{
   width: 50%;

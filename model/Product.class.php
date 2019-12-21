@@ -32,6 +32,18 @@ class Product {
   	}
 
 
+    static public function getNotebook(){
+      $notebooks = array();
+      $res = DB::doQuery("SELECT * FROM products WHERE type='notebooks'");
+      if($res){
+        while ($notebook = $res->fetch_object(get_class())) {
+          $notebooks[] = $notebook;
+        }
+      }
+      return $notebook;
+    }
+
+
     public function getId(){
       return $this->id;
     }

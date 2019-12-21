@@ -1,3 +1,27 @@
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script>
+   $(function(){
+     $('.formCart').submit(function(e){
+       e.preventDefault();
+       //AJAX
+       $.ajax({
+         url: 'index.php?action=shoppingCart',
+         type: 'POST',
+         data: $(this).serialize(),
+         success: function(response) {
+           /*$('#cart-holder').fadeOut(500, function(){
+               $(this).empty().append(response).fadeIn(500);
+           });*/
+           console.log(response);
+         },
+         error: function() {
+           console.log("Uppppsssss....");
+         }
+       });
+     });
+   });
+ </script>
+
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -8,6 +32,12 @@
     <title><?= $title ?></title>
   </head>
   <body>
+    <?php
+    if($this->controller->isAdmin()) {
+      echo "he is admin";
+    } else {
+      echo "false";
+    }?>
     <header>
       <div class="header_languages">
         <nav>
@@ -23,10 +53,11 @@
           <ul>
             <li> <a href="index.php?action=home">Home</a> </li>
             <li> <a href="index.php?action=products">Products</a></li>
-            <?php if($this->controller->isLoggedIn()) echo "<li> <a href=\"index.php?action=list_users\">Users</a></li>"; ?>
+            <?php if($this->controller->isAdmin()) echo "<li> <a href=\"index.php?action=list_users\">Users</a></li>"; ?>
             <?php if (!$this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=login\">Login</a></li>"; ?>
             <?php if ($this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=logout\">Logout</a></li>"; ?>
             <li> <a href="index.php?action=agb" target="_blank">AGB</a> </li>
+            <li> <a href="index.php?action=shoppingCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> </li>
 
           </ul>
         </nav>

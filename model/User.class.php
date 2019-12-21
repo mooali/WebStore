@@ -32,6 +32,8 @@ class User
 
 
 
+
+
 	public function __toString()
 	{
 			return sprintf("%d) %s %s %s", $this->id, $this->username, $this->email, $this->type);
@@ -66,10 +68,10 @@ class User
 			$users = User::getUser('id');
 			foreach ($users as $user) {
 					if ($user->username == $login && $user->pwd == $password) {
-							return true;
+							return $user;
 					}
 			}
-			return false;
+			return null;
 			//return isset(self::$users[$login]) && self::$users[$login] == $password;
 	}
 
