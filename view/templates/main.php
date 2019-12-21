@@ -19,7 +19,11 @@
          }
        });
      });
+     $(".updateCart").bind('keyup mouseup',function(){
+       $(this).closest("form").submit();
+     });
    });
+
  </script>
 
 <!DOCTYPE html>
@@ -36,7 +40,7 @@
     if($this->controller->isAdmin()) {
       echo "he is admin";
     } else {
-      echo "false";
+      echo "you are a user or not logged in";
     }?>
     <header>
       <div class="header_languages">

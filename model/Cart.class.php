@@ -32,6 +32,10 @@ class Cart {
 		}
 	}
 
+  public function setItem($itemId, $num) {
+			$this->items[$itemId] = $num;
+	}
+
 	public function getItems() {
 		return $this->items;
 	}
@@ -57,7 +61,13 @@ class Cart {
 			echo "<tr><th>Article-ID</th><th>Article Name</th><th>#</th></tr>";
 			foreach($this->items as $item => $num) {
 				$product = Product::getProductById($item);
-				echo "<tr><td>".$product->getId().$product->getName_de()."</td><td>$num</td></tr>";
+        echo "<tr><td>".$product->getId().$product->getName_de()."</td><td>
+        <div class='cart_update'>
+                <form class='formCart'>
+                <input class='updateCart' type='number' name='amount' min='1' value='$num'>
+                <input type='hidden' name='order_id' value='".$product->getId()."'>
+                </form>
+                </div></td></tr>";
 			}
 			echo "<tr><th>TOTAL</th><th>".$this->getTotal()."</th></tr>";
 			echo "</table></div>";

@@ -10,16 +10,17 @@ if (isset($_POST['item'])) {
   $cart->updateItem($item['id'], $item['num']);
 }
 
+
+if (isset($_POST['amount'])) {
+  $amount = $_POST['amount'];
+  $id = $_POST['order_id'];
+  $cart->setItem($id, $amount);
+}
+
+
 ?>
 
 <h4>My Shopping Cart</h4>
   <div id="cart-holder">
     <?php $cart->render(); ?>
   </div>
-  <h4>Add Item</h4>
-  <form class="formCart" method="post">
-    <label>Product Id</label> <input name="item[id]" /><br />
-    <label>Number</label> <input name="item[num]" type="number"/><br />
-    <input type="submit" value="Add" />
-
-  </form>
