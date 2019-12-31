@@ -58,10 +58,11 @@ class Cart {
 			echo "<div class=\"cart empty\">[Empty Cart]</div>";
 		} else {
 			echo "<div class=\"cart\"><table>";
-			echo "<tr><th>Article-ID</th><th>Article Name</th><th>#</th></tr>";
+			echo "<tr><th>Article Name</th><th>#</th></tr>";
 			foreach($this->items as $item => $num) {
 				$product = Product::getProductById($item);
-        echo "<tr><td>".$product->getId().$product->getName_de()."</td><td>
+        $img = "assets/images/".$product->getImage();
+        echo "<tr><td class=\"cartTd\">"."<img src='$img' width= 10%>"." ".$product->getName_de()."<td>".$product->getPrice().$product->getChf()."</td></td><td>
         <div class='cart_update'>
                 <form class='formCart'>
                 <input class='updateCart' type='number' name='amount' min='1' value='$num'>
@@ -73,5 +74,4 @@ class Cart {
 			echo "</table></div>";
 		}
 	}
-
 }

@@ -1,6 +1,6 @@
 <section class="form login--form">
     <div class="form_container">
-      <h3>Login</h3>
+      <h2>Login</h2>
         <?php echo isset($message) ? "<h5>".$message."</h5>" : ""; ?>
         <form id="loginForm" action="index.php?action=login" method="post">
           <p><label for="userName">User Name</label>

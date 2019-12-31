@@ -12,7 +12,7 @@ class User
 	{
 			return $this->id;
 	}
-	
+
 	public function getUsername()
 	{
 			return $this->username;
@@ -44,8 +44,10 @@ class User
 
 	static public function insert($values)
 	{
+		$name = $values['username'];
+		$password = md5($values['pwd']);
 			if ($stmt = DB::getInstance()->prepare("INSERT INTO users (username, email , pwd, type) VALUE (?,?,?,?)")) {
-					if ($stmt->bind_param('ssss', $values['username'], $values['email'], $values['pwd'], $values['type'])) {
+					if ($stmt->bind_param('ssss', $values['username'], $values['email'], $password, $values['type'])) {
 							if ($stmt->execute()) {
 									return true;
 							}
@@ -53,6 +55,10 @@ class User
 			}
 			return false;
 	}
+
+
+
+
 
 
 	static public function delete($id)
@@ -66,6 +72,7 @@ class User
 
 	public static function checkCredentials($login, $password)
 	{
+			$password = md5($password); //encrypt the input password
 			$users = User::getUser('id');
 			foreach ($users as $user) {
 					if ($user->username == $login && $user->pwd == $password) {
@@ -125,6 +132,49 @@ class User
 					}
 			}
 			return null;
+	}
+
+
+	static public function nameExist($username){
+		$res = DB::doQuery("SELECT * FROM users WHERE username = $username");
+		return $res;
+	}
+
+	static public function emailExist($email){
+		$res = DB::doQuery("SELECT * FROM users WHERE email = $email");
+		return $res;
+	}
+
+
+
+
+	public static function checkName($username){
+		if (!preg_match("/^[a-zA-Z ]*$/",$username)){
+			 return false;
+		} else {
+			return true;
+		}
+	}
+
+	public static function checkEmail($email){
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
+
+	public static function checkPassword($password){
+		$uppercase = preg_match('@[A-Z]@', $password);
+		$lowercase = preg_match('@[a-z]@', $password);
+		$number    = preg_match('@[0-9]@', $password);
+		$specialChars = preg_match('@[^\w]@', $password);
+		if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)<8) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 }

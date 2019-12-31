@@ -17,7 +17,6 @@ if (isset($_POST['amount'])) {
   $cart->setItem($id, $amount);
 }
 
-
 ?>
 
 <h4>My Shopping Cart</h4>

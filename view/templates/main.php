@@ -1,3 +1,5 @@
+
+
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  <script>
    $(function(){
@@ -12,6 +14,7 @@
            /*$('#cart-holder').fadeOut(500, function(){
                $(this).empty().append(response).fadeIn(500);
            });*/
+
            console.log(response);
          },
          error: function() {
@@ -62,7 +65,7 @@
             <?php if ($this->controller->isLoggedIn()) echo "<li><a href=\"index.php?action=logout\">Logout</a></li>"; ?>
             <li> <a href="index.php?action=agb" target="_blank">AGB</a> </li>
             <li> <a href="index.php?action=shoppingCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a> </li>
-
+            <?php if($this->controller->isLoggedIn()) echo "<li><a href=\"index.php?edit_user.php\"><i class=\"fa fa-user-circle\" aria-hidden=\"true\"></i></a></li>"; ?>
           </ul>
         </nav>
       </div>

@@ -69,6 +69,9 @@ class Product {
     return $this->desc_de;
   }
 
+  public function getChf(){
+    return $this->chf;
+  }
 
 
   static public function getProductById($id) {
@@ -107,7 +110,7 @@ public function save(){
 
 
   public function __toString(){
-  return sprintf("%d) %s, %s, %s, %d %s", $this->id, $this->getName_de(), $this->desc_de, $this->type, $this->price, $this->chf);
+  return sprintf("%d) %s, %s, %s", $this->id, $this->getName_de(), $this->desc_de, $this->type, $this->chf);
 }
 
 }

@@ -21,7 +21,7 @@ class Controller {
 			$pwd= $request->getParameter('password', '');
 			$user = User::checkCredentials($login, $pwd);
 			if ($user == null) {
-				$this->data["message"] = "Upps das passt nicht ganz....";
+				$this->data["message"] = "User name or password are not correct!";
 				return;
 			}
 			$this->startSession();
@@ -47,6 +47,18 @@ class Controller {
 
 
 	public function edit_product(Request $request) {
+
+		$id = $request->getParameter('id', 0);
+		$product = Product::getProductById($id);
+		if (!$product) {
+			return $this->page404();
+		}
+		$this->data["product"] = $product;
+		$this->title = $product->getName_de();
+	}
+
+
+	public function display_product(Request $request) {
 
 		$id = $request->getParameter('id', 0);
 		$product = Product::getProductById($id);
@@ -115,15 +127,64 @@ class Controller {
 
 
 	public function signupUser(Request $request){
-
 		$values = $request->getParameter('user', array());
-		$user = User::insert($values);
-		if (!$user) {
-					 return $this->page404();
+		$username = $values['username'];
+		$email = $values['email'];
+		$password = $values['pwd'];
+		$rePassowrd = $values['re-pwd'];
+		$validName = User::checkName($username);
+		$validEmail= User::checkEmail($email);
+		$validpwd= User::checkPassword($password);
+		$nameExist= User::nameExist($username);
+		$emailExist= User::emailExist($email);
+
+		if(empty($username) || empty($email) || empty($password) || empty($rePassowrd)){
+			//header("Location: ../register.php?error=emptyFields&username=".$values['username']."&email=".$values['email']);
+			$this->data["message"] = "All fields must be filled!";
+			return 'register';
+			exit();
+		} else if(!$validName){
+			$this->data["message"] = "wrong name";
+			return 'register';
+			exit();
+		}
+		else if(!$nameExist){
+			$this->data["message"] ="Username is already exist!";
+			return 'register';
+			exit();
+		}
+		else if($emailExist){
+			$this->data["message"] = "Email is already exist!";
+			return 'register';
+			exit();
+		}
+		 else if(!$validEmail){
+			$this->data["message"] ="invalid email";
+			return 'register';
+			exit();
+		} /*else if(!$validpwd){
+			$this->data["message"] ="Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.";
+			return 'register';
+			exit();
+		}*/
+			else if($password != $rePassowrd){
+			$this->data["message"] ="passwords dosent match";
+			return 'register';
+			exit();
+		} else{
+				$user = User::insert($values);
+				if (!$user) {
+						return $this->page404();
 				 }
 		$this->data['message'] = "User created successfully!";
 		return 'home';
 	}
+}
+
+
+
+
+
 
 	public function register(Request $request) {
 		$this->title = "signup";
@@ -183,10 +244,6 @@ public function isAdmin()
 
 	public function edit_user(Request $request)
 	{
-			/* if (!$this->isAdmin()) {
-					 $this->data['message'] = "To edit a User, please login first!";
-					 return 'login';
-			 }*/
 			$id = $request->getParameter('id', 0);
 			$user = User::getUserById($id);
 			if (!$user) {
@@ -194,7 +251,6 @@ public function isAdmin()
 			}
 			$this->data['user'] = $user;
 	}
-
 
 
 
@@ -273,6 +329,7 @@ public function delete_item(Request $request)
 	public function getTitle() {
 		return $this->title;
 	}
+
 
 
 	// P R I V A T E  H E L P E R S
