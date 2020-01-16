@@ -6,8 +6,8 @@ class User
 	private $username;
 	private $email;
 	private $pwd;
-	private $type
-	;
+	private $type;
+
 	public function getID()
 	{
 			return $this->id;
@@ -45,7 +45,7 @@ class User
 	static public function insert($values)
 	{
 		$name = $values['username'];
-		$password = md5($values['pwd']);
+		$password = md5($values['pwd'].PASSWORD_DEFAULT);
 			if ($stmt = DB::getInstance()->prepare("INSERT INTO users (username, email , pwd, type) VALUE (?,?,?,?)")) {
 					if ($stmt->bind_param('ssss', $values['username'], $values['email'], $password, $values['type'])) {
 							if ($stmt->execute()) {
@@ -72,7 +72,7 @@ class User
 
 	public static function checkCredentials($login, $password)
 	{
-			$password = md5($password); //encrypt the input password
+			$password = md5($password.PASSWORD_DEFAULT); //encrypt the input password
 			$users = User::getUser('id');
 			foreach ($users as $user) {
 					if ($user->username == $login && $user->pwd == $password) {
@@ -102,6 +102,7 @@ class User
 
 
 
+
 	public function update($values)
 	{
 			$db = DB::getInstance();
@@ -115,7 +116,8 @@ class User
 
 	public function save()
 	{
-			$sql = sprintf("UPDATE users SET username='%s', email='%s', pwd='%s', type='%s' WHERE id = %d;", $this->username, $this->email, $this->pwd, $this->type, $this->id);
+			$password = md5($this->$pwd.PASSWORD_DEFAULT); //encrypt the input password
+			$sql = sprintf("UPDATE users SET username='%s', email='%s', pwd='%s', type='%s' WHERE id = %d;", $this->username, $this->email, $password, $this->type, $this->id);
 			$res = DB::doQuery($sql);
 			return $res != null;
 	}
@@ -136,14 +138,44 @@ class User
 
 
 	static public function nameExist($username){
-		$res = DB::doQuery("SELECT * FROM users WHERE username = $username");
-		return $res;
+		$res = DB::doQuery("SELECT * FROM users WHERE username = '$username'");
+		if(mysqli_num_rows($res)>0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	static public function emailExist($email){
-		$res = DB::doQuery("SELECT * FROM users WHERE email = $email");
-		return $res;
+		$res = DB::doQuery("SELECT * FROM users WHERE email = '$email'");
+		if(mysqli_num_rows($res)>0){
+			return true;
+		}else{
+			return false;
+		}
 	}
+/* ive deleted the table "address". now all infos are in the table "orders"
+	static public function haveAddress($id){
+		$res = DB::doQuery("SELECT * FROM address WHERE user_id = '$id'");
+		if(mysqli_num_rows($res)>0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+*/
+	static public function getAddressId($id){
+		$res = DB::doQuery("SELECT id FROM address WHERE user_id = '$id'");
+		if ($res) {
+				if ($id = $res->fetch_object(get_class())) {
+						return $id;
+				}
+			}
+			return null;
+	}
+
+
+
 
 
 

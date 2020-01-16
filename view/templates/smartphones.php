@@ -3,11 +3,11 @@
 	<h3><?php echo $this->controller->t('Products'); ?></h3>
 	<h5><?php echo isset($message) ? $message : ''; ?></h5>
 
-	<?php if(empty($products)): ?>
+	<?php if(empty($smartphones)): ?>
 		<p>empty</p>
 	<?php else: ?>
 	<?php echo "<div class='products_flex'>"; ?>
-	<?php	foreach($products as $product): ?>
+	<?php	foreach($smartphones as $product): ?>
 	<?php
   		$id = $product->getId();
 			$img = "assets/images/".$product->getImage();

@@ -6,12 +6,57 @@
 class Product {
 
   private $id;
-  private $name_de;
-  private $desc_de;
+  private $name;
+  private $cpu;
+  private $graphic;
+  private $hddssd;
+  private $ram;
+  private $connections;
   private $type;
   private $image;
   private $price;
-  private $chf = "CHF";
+
+
+
+  public function getId(){
+    return $this->id;
+  }
+
+  public function getName() {
+  return $this->name;
+}
+
+public function getGraphic(){
+  return $this->graphic;
+}
+
+public function getHddSsd(){
+  return $this->hddssd;
+}
+
+public function getPrice() {
+  return $this->price;
+}
+
+public function getImage() {
+  return $this->image;
+}
+
+
+public function getType() {
+  return $this->type;
+}
+
+public function getCpu() {
+  return $this->cpu;
+}
+
+public function getRam() {
+  return $this->ram;
+}
+public function getConnections() {
+  return $this->connections;
+}
 
 
   function __construct()
@@ -33,45 +78,28 @@ class Product {
 
 
     static public function getNotebook(){
-      $notebooks = array();
+      $products = array();
       $res = DB::doQuery("SELECT * FROM products WHERE type='notebooks'");
       if($res){
-        while ($notebook = $res->fetch_object(get_class())) {
-          $notebooks[] = $notebook;
+        while ($product = $res->fetch_object(get_class())) {
+          	$products[] = $product;
         }
       }
-      return $notebook;
+      return $products;
     }
 
 
-    public function getId(){
-      return $this->id;
+    static public function getSmartphones(){
+      $products = array();
+      $res = DB::doQuery("SELECT * FROM products WHERE type='smartphone'");
+      if($res){
+        while ($product = $res->fetch_object(get_class())) {
+            $products[] = $product;
+        }
+      }
+      return $products;
     }
 
-    public function getName_de() {
-		return $this->name_de;
-	}
-
-  public function getPrice() {
-    return $this->price;
-  }
-
-  public function getImage() {
-    return $this->image;
-  }
-
-
-  public function getType() {
-		return $this->type;
-	}
-
-  public function getDesc_de() {
-    return $this->desc_de;
-  }
-
-  public function getChf(){
-    return $this->chf;
-  }
 
 
   static public function getProductById($id) {
@@ -93,24 +121,55 @@ static public function delete($id){
 
 }
 
+static public function insert_product($values)
+{
+  $name = $values['name'];
+  $cpu = $values['cpu'];
+  $graphiccard = $values['graphic'];
+  $hddssd = $values['hddssd'];
+  $ram = $values['ram'];
+  $connections = $values['connections'];
+  $type = $values['type'];
+  $image =$values['image'];
+  $price = $values['price'];
+    if ($stmt = DB::getInstance()->prepare("INSERT INTO products (name, cpu, graphic_card, hdd_ssd, ram, connections, type, image, price) VALUE (?,?,?,?,?,?,?,?,?)")) {
+        if ($stmt->bind_param('ssssssssd',$name, $cpu, $graphiccard, $hddssd, $ram, $connections, $type, $image, $price)) {
+            if ($stmt->execute()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
 public function update($values) {
   $db = DB::getInstance();
-  $this->name_de = $db->escape_string($values['name_de']);
-  $this->desc_de = $db->escape_string($values['desc_de']);
-  $this->type = $db->escape_string($values['type']);
+  $this->name = $db->escape_string($values['name']);
+  $this->cpu = $db->escape_string($values['cpu']);
+  $this->graphic = $db->escape_string($values['graphic']);
+  $this->hddssd = $db->escape_string($values['hddssd']);
+  $this->ram = $db->escape_string($values['ram']);
+  $this->connections = $db->escape_string($values['connections']);
+  $this->typ = $db->escape_string($values['type']);
+  $this->image = $db->escape_string($values['image']);
   $this->price = (double)$values['price'];
 }
 
 
 public function save(){
-  $sql = sprintf("UPDATE products SET name_de='%s', desc_de='%s', type='%s', price=%d WHERE id= %d;",$this->name_de, $this->desc_de, $this->type, $this->price, $this->id);
+  $sql = sprintf("UPDATE products SET
+    name='%s', cpu='%s', graphic_card='%s', hdd_ssd='%s', ram='%s', connections= '%s', type='%s', image='%s', price='%d'
+     WHERE id= %d;",
+     $this->name, $this->cpu, $this->graphic, $this->hddssd, $this->ram,$this->connections, $this->type, $this->image, $this->price, $this->id);
   $res = DB::doQuery($sql);
   return $res != null;
 }
 
 
   public function __toString(){
-  return sprintf("%d) %s, %s, %s", $this->id, $this->getName_de(), $this->desc_de, $this->type, $this->chf);
+  return sprintf("%d %s,%s,%s,%s,%s %s, %s, %s, %d", $this->id,$this->name, $this->cpu, $this->graphic, $this->hddssd, $this->ram,
+       $this->connections, $this->type, $this->image, $this->price);
 }
 
 }

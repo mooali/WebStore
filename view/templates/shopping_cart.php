@@ -14,6 +14,10 @@ if (isset($_POST['item'])) {
 if (isset($_POST['amount'])) {
   $amount = $_POST['amount'];
   $id = $_POST['order_id'];
+  if($amount == "" || $amount == 0) {
+    $cart->removeItem($id, $cart->getAmount($id));
+    die();
+  }
   $cart->setItem($id, $amount);
 }
 
@@ -21,5 +25,7 @@ if (isset($_POST['amount'])) {
 
 <h4>My Shopping Cart</h4>
   <div id="cart-holder">
-    <?php $cart->render(); ?>
+    <?php $cart->render($this->controller); ?>
   </div>
+
+  <input id="total_price" type="hidden" value="<?=$cart->getTotal()?>"/>

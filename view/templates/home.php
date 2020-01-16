@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <div class="home_pics">
-    <a href="index.php?action=notebooks"><img src="assets/images/notebook.jpg" height="250" alt=""></a>
-      <img src="assets/images/onePlus7.png" height="250"  alt="">
+<div class="products">
+  <h3><?php echo $this->controller->t('Products'); ?></h3>
+
+<div class="products_flex_home">
+    <div class="products_wrapper">
+        <a href="index.php?action=smartphones"><img src="assets/images/onePlus7.png" alt="handy" title="Smartphones"></a>
     </div>
-  </body>
-</html>
+    <div class="products_wrapper">
+    <a href="index.php?action=notebooks"> <img src="assets/images/notebook.jpg" alt="notebook" title="Notebooks"></a>
+  </div>
+</div>
+</div>

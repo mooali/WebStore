@@ -6,6 +6,8 @@
 	$request = new Request();
 	//$action = isset($_GET['action']) ? $_GET['action'] : 'home';
 	$action = $request->getParameter('action', 'home');
+	$lang = $request->getParameter('lang', 'en');
+
 
 	// Inizialize model
 	if (!DB::create('localhost', 'root', '', 'webshop')) {
@@ -17,6 +19,10 @@
 		$controller = new Controller();
 		$tpl = $controller->$action($request);
 		$tpl = $tpl ? $tpl : $action;
+		//languages
+		$controller->gen_lang();
+		$langSet = $controller->$lang($request);
+    $langSet = $langSet ? $langSet : $lang;
 
 		// Create view
 		$view = new View($controller);

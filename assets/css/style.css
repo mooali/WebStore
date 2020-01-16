@@ -18,13 +18,13 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-
 header{
   display: block;
 }
 .header_languages{
   margin: 0.2px;
-  font-size: 1em;
+	padding: 1em;
+  font-size: 1.1em;
 }
 
 
@@ -42,33 +42,167 @@ header{
 	letter-spacing: 0.07em;
 }
 
+.insert_product{
+	width: 20%;
+	padding: 0.5em;
+	font-weight: bold;
+	font-size: 1em;
+	letter-spacing: 0.07em;
+}
 
+.insert_product input{
+border: none;
+background: #404040;
+color: #ffffff !important;
+font-weight: 100;
+padding: 20px;
+border-radius: 6px;
+display: inline-block;
+
+}
 .register_error{
 	background-color:red;
 }
 
 
 .products_wrapper{
+	margin: 1em;
+	display: inline-flex;
   border: solid 0.2em;
   width: 30%;
   border-style: outset;
   border-radius: 20px;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
+	flex-direction: column;
 	padding: 40px 0 0 0;
-  transition: 1s;
-
+  transition: 300ms;
 }
-
 
 .products_wrapper:hover{
-  width: 35%;
+	width: 29.5%;
+	border-width: 0.3em;
+	border-color: red;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 }
 
-.formCart{
-  display: flex;
-  justify-content: center;
+.products_flex {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.products_flex_home{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.agb {
+    padding: 30px;
+}
+
+.agb h1,h2,h3,h4,h5 {
+    font-weight: bold;
+}
+
+.img{
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 5px;
+	align:center;
+	display: block;
+	transition: 300ms;
+  }
+
+
+
+.table_admin{
+	font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table_admin td, th{
+	border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.table_admin tr:nth-child(even){
+	background-color: #dddddd;
+
+}
+.users h3{
+	text-align: center;
+	font-size: 2em;
+	letter-spacing: 0.08em;
+	border: solid 0.05em;
+
+}
+
+.products h3{
+	text-align: center;
+	font-size: 2em;
+	letter-spacing: 0.08em;
+	width: 100%;
+	padding: 2em 0;
+}
+
+.products {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.products_wrapper img {
+	height: 200px;
+}
+
+.admin_panel{
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	text-align: center;
+	padding-top: 5em;
+}
+
+.admin_orders h3{
+	text-align: center;
+	font-size: 2em;
+	letter-spacing: 0.08em;
+	border: solid 0.05em;
+}
+
+.admin_panel a{
+	font-size: 2em;
+	border: solid 0.01em;
+	letter-spacing: 0.08em;
+	color: black;
+	align-items: center;
+	display: block;
+}
+
+.admin_panel h3{
+	text-align: center;
+	font-size: 3em;
+	letter-spacing: 0.3em;
+	border: solid 0.05em;
+
+}
+.admin_panel i{
+	text-align: left;
+	align-items: left;
+	justify-content: center;
+
+}
+#usr{
+	text-align: left;
+	align-items: left;
+	display: inline-block;
+	flex-direction: column;
+
 }
 
 .formCart input[type=submit]{
@@ -107,14 +241,30 @@ header{
   background-color: : #FFFFFF;
 }
 
-.img{
-  width: 80%;
-  padding-left: 2em;
-  display: block;
-  }
+.settings_edit{
+	text-align: center;
+	color: black;
+	font-size: 1em;
 
+}
+.settings_delete{
+	text-align: center;
+	font-size: 1em;
+	color: black;
 
+}
+.settings{
+}
 
+.display_head{
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.admin_table_head{
+	font-weight: bold;
+	font-size: 22px;
+}
 
 .products_display_wrapper{
   border: solid 0.2em;
@@ -128,8 +278,10 @@ header{
   transition: 1s;
   }
 
-.product_display_desc{
+.product_display_name{
   font-size: 1em;
+	justify-content: center;
+	text-align: center;
 }
 
 .product_display_div{
@@ -156,13 +308,19 @@ header{
   display: flex;
   padding-bottom: 2em;
   padding-top: 2em;
-  justify-content: center;
+  justify-content: left;
   margin: 0.05em;
-  font-size: 1em;
+  font-size: 1.5em;
   text-align: center;
   flex-direction: column;
 
 }
+
+
+/*.headser_cart{
+	text-align: right;
+	position: relative;
+}*/
 
 
 .header_menu nav ul li{
@@ -195,46 +353,79 @@ header{
 }
 */
 .updateCart{
-  background-color: white;
-  width: 80%;
+	width: 100%;
 }
 
 .cart {
-  width: 750px;
-  height: 423px;
+  width: 70%;
   margin: 80px auto;
   background: #FFFFFF;
   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
   border-radius: 6px;
-  display: flex;
+  display: block;
   flex-direction: column;
+	padding: 1em;
+}
+
+.cart_update{
+}
+
+body{
+	width:  100%;
+	min-height: 100%;
+}
+#container{
+	min-height: 100%;
+}
+
+#main{
+	overflow: auto;
+	padding-bottom: 100px;
+}
+#footer{
+	position: relative;
+	background: #123;
+	color: white;
+	text-align: center;
+	height: 100px;
+	clear: both;
+}
+
+.formCart{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
-footer{
-  background: #123;
-  color: white;
-  text-align: center;
+.checkout_link{
+	width: 100;
+	justify-content: center;
 }
 
-footer p{
+
+.checkout_form p{
+	width: 30%;
+	display: inline-block;
+}
+
+
+.cartTd td{
+	background-color: red;
+}
+
+
+#footer p{
   padding: 2em;
   color: white;
 }
 
-footer a{
+#footer a{
   color: inherit;
   letter-spacing: 0.15em;
   border-bottom: 1px dotted rgba(255,255,255,.4);
 }
 
-.home_pics{
-  padding: 2em;
-  cursor: pointer;
-  margin: 80px auto;
-  display: block;
-
-}
 
 input{
   width: 100%;
@@ -251,10 +442,9 @@ input:focus{
 
 
 
-
 .form_container{
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	background: rgba(17, 103, 156, 0.87);
 	display: flex;
 	color: white;
@@ -262,6 +452,25 @@ input:focus{
 	align-items: center;
 	flex-direction: column;
 }
+
+.form_container_order{
+	width: 100%;
+	background: rgba(17, 103, 156, 0.87);
+	display: flex;
+	color: white;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#error{
+	width: 20%;
+	border: solid 0.01em;
+	font-size: 1em;
+	text-align: center;
+	background-color: red;
+}
+
 
 .registerForm{
 	width: 20%;
@@ -284,11 +493,13 @@ input:focus{
 	background: #404040;
 	color: #ffffff !important;
 	font-weight: 100;
+	font-size: 1em;
 	padding: 20px;
 	text-transform: uppercase;
 	border-radius: 6px;
 	display: inline-block;
 	transition: all 0.3s ease 0s;
+	cursor: pointer;
 }
 
 .form_container_submit:hover{
