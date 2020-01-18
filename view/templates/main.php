@@ -47,11 +47,17 @@
                $('#error').slideUp("slow");
            }, 5000);});
 
+           $(document).each(function () {
+              setTimeout(function() {
+                  $('#welcome-msg').slideUp("slow");
+              }, 5000);});
       });
 
     </script>
   </head>
   <body>
+    <div id="page-container">
+      <div id="content-wrap">
     <header>
       <div class="header_languages">
         <nav>
@@ -82,13 +88,10 @@
         </nav>
       </div>
     </header>
-    <div id="container">
-    <div id="main">
       <main>
         <?php include $innerTpl; ?>
       </main>
     </div>
-  </div>
     <footer id="footer">
         <p>
           &copy; 2019
@@ -96,5 +99,6 @@
           <a href="https://github.com/macivo" target="_blank">& Mac Müller</a>
           </p>
         </footer>
+      </div>
   </body>
 </html>

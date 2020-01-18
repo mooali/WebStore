@@ -1,6 +1,6 @@
 <?php
 $lang = isset($_COOKIE['lang'])? $_COOKIE['lang']: en;
-$fn = $_SERVER["DOCUMENT_ROOT"].'/shop/assets/messages/agb_'.$lang.'.txt';
+$fn = $_SERVER["DOCUMENT_ROOT"].'/momac/assets/messages/agb_'.$lang.'.txt';
 $file = file($fn);
 echo '<div class="agb">';
 foreach($file as $line) {

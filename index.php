@@ -1,6 +1,7 @@
 <?php
 	// F R O N T   C O N T R O L L E R
-
+	//this index is similar to the one in  BTI7054 Topic 11 - MVC
+	//some changes were made on it
 	require_once 'autoloader.php';
 
 	$request = new Request();
@@ -10,7 +11,7 @@
 
 
 	// Inizialize model
-	if (!DB::create('localhost', 'root', '', 'webshop')) {
+	if (!DB::create('localhost', 'root', 'bratwurst', 'momac')) {
 		die("Unable to connect to database [".DB::getInstance()->connect_error."]");
 	}
 

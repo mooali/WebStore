@@ -2,12 +2,12 @@
     <div class="form_container">
       <h2><?php echo $this->controller->t('Login'); ?></h2>
         <div id="error">
-          <?php echo isset($message) ? "<h5>".$message."</h5>" : ""; ?>
+          <?php echo isset($message) ? "<h5>".$this->controller->t($message)."</h5>" : ""; ?>
         </div>
         <form id="loginForm" action="index.php?action=login" method="post">
-          <p><label for="userName">User Name</label>
+          <p><label for="userName"><?php echo $this->controller->t('User Name'); ?></label>
           <input type="text" class="form_container_input" placeholder="Username" maxlength="250" name="name" required title="Only letters, numbers and 'underscore' are allowed"></p>
-          <p><label for="password">Password</label>
+          <p><label for="password"><?php echo $this->controller->t('Password'); ?></label>
           <input type="password" class="form_container_input" placeholder="Password" maxlength="250" name="password" required></p>
           <div class="form_container_error" hidden>Login incorrect</div>
           <span class="form_container_buttons">

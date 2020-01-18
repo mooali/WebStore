@@ -1,8 +1,9 @@
 <div class="products">
 
 	<h3><?php echo $this->controller->t('Products'); ?></h3>
-	<h5><?php echo isset($message) ? $message : ''; ?></h5>
-
+	<div class="kategorie">
+		<a class="form_container_submit" href="index.php?action=smartphones"><?php echo $this->controller->t('Show only Smartphones'); ?></a><a class="form_container_submit" href="index.php?action=notebooks"><?php echo $this->controller->t('Show only Notebooks'); ?></a>
+	</div>
 	<?php if(empty($products)): ?>
 		<p>empty</p>
 	<?php else: ?>

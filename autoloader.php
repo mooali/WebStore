@@ -1,4 +1,8 @@
 <?php
+
+//this file was taken from ->  BTI7054 Topic 11 - MVC
+ //i haven't changed that much on it
+
 function __autoload($class_name){
 
 	// Directories to look in

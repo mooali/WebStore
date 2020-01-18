@@ -23,7 +23,9 @@ if (isset($_POST['amount'])) {
 
 ?>
 
-<h4>My Shopping Cart</h4>
+<div class="products">
+<h3><?php echo $this->controller->t('My Shopping Cart'); ?></h3>
+</div>
   <div id="cart-holder">
     <?php $cart->render($this->controller); ?>
   </div>

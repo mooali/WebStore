@@ -1,6 +1,7 @@
 <?php
 
-
+//this class was orignally take from the course BTI7054 - Web Programming -> Topic 10 - HTTP, XML, JSON, AJAX
+//iv'e done alot of changes on it. but it was the starter
 class Cart {
 
 	// product id <-> num
@@ -94,7 +95,7 @@ public function getProductsInfo(){
 
 
 	public function sendEmail($id){
-		$to ="";
+		$to ="skylaine2008@yahoo.com";
 		$subject = "Thank you we received your order";
 		$message = Cart::getProductsInfo();
 		$headers = array(
@@ -102,12 +103,8 @@ public function getProductsInfo(){
 			'Replay-To' => 'momacshop@outlook.com',
 			'X-Mailer' => 'PHP/'. phpversion()
 		);
-		$res = DB::doQuery("SELECT email FROM orders where user_id =$id");
-		if ($res) {
-			 		if($email = $res->fetch_assoc()) {
-									$to = $email["email"];
-			}
-	}
+
+
 	mail($to,$subject,$message,$headers);
 }
 
@@ -115,10 +112,12 @@ public function getProductsInfo(){
 
 	public function render(Controller $controller) {
 		if ($this->isEmpty()) {
-			echo "<div class=\"cart empty\">[Empty Cart]</div>";
+			echo "<div class=\"cart_empty\">
+						<p>".$controller->t('Your Cart is Empty')."</p>
+						</div>";
 		} else {
 			echo "<div class=\"cart\"><table>";
-			echo "<tr>
+			echo "<tr class=\"cart_table_head\">
 								<th>".$controller->t('Article Name')."</th>
 								<th>".$controller->t('Price')."</th>
 								<th>".$controller->t('Amount')."</th>
@@ -127,7 +126,7 @@ public function getProductsInfo(){
 				$product = Product::getProductById($item);
         $img = "assets/images/".$product->getImage();
         echo "
-				<tr><td class=\"cartTd\"><hr>"."<img src='$img' width= 10%>"." ".$product->getName()."<td>".$product->getPrice()."</td></td><td>
+				<tr><td class=\"cartTd\"><hr>"."<img src='$img' width= 10%>"." ".$product->getName()."<td class=\"product_price\">".$product->getPrice()."</td></td><td>
         <div class='cart_update'>
                 <form class='formCart'>
                 <input class='updateCart' type='number' name='amount' min='1'  value='$num'>
@@ -136,31 +135,34 @@ public function getProductsInfo(){
                 </div>
 								<div>
 								<form class=\"Delete_item\" action=\"index.php?action=delete_item\" method=\"post\">
-								<input class='delete' type='submit' name='delete' value='".$controller->t('Delete')."'>
+								<input class=\"checkout_delete\" type='submit' name='delete' value='".$controller->t('Delete')."'>
 								<input type='hidden' name='delete[amount]' value='$num'>
 								<input type='hidden' name='delete[order_id]' value='".$product->getId()."'>
 								</div>
 								</form>
 								</td></tr>";
 			}
-			echo "<tr><th><hr>TOTAL</th><th><span id=\"total_price1\">".$this->getTotal()."</span></th></tr>";
+			echo "<tr><th class=\"cart_total\"><hr>TOTAL</th><th><span class=\"product_price\" id=\"total_price1\">".$this->getTotal()."</span></th></tr>";
 			echo "</table>";
 			echo "<form class=\"Delete_item\" action=\"index.php?action=order\" method=\"post\">";
-			echo "<button class=\"Delete_item\"><a href=\"index.php?action=order\">Checkout</a></button></div>";
+			echo "<button class=\"form_container_checkOut\"><a href=\"index.php?action=order\">Checkout</a></button></div>";
 
 		}
 	}
 
-	public function order_render() {
+	public function order_render(Controller $controller) {
 			echo "<div class=\"cart\"><table>";
-			echo "<tr><th>Article Name</th><th>Quentity</th></tr>";
+			echo "<tr class=\"cart_table_head\">
+							<th>".$controller->t('Article Name')."</th>
+							<th>".$controller->t('Amount')."</th>
+						</tr>";
 			foreach($this->items as $item => $num) {
 				$product = Product::getProductById($item);
 				$img = "assets/images/".$product->getImage();
-				echo "<tr><td class=\"cartTd\">"."<img src='$img' width= 10%>"." ".$product->getName()."<td>$num</td></td><td>
+				echo "<tr><td class=\"cartTd\">"."<img src='$img' width= 10%>"." ".$product->getName()."<td id='checkout_amount'>$num</td></td><td>
 				</td></tr>";
 			}
-			echo "<tr><th>TOTAL</th><th>".$this->getTotal()."</th></tr>";
+			echo "<tr><th class=\"cart_total\"><hr>TOTAL</th><th><span class=\"product_price\" id=\"total_price1\">".$this->getTotal()." CHF</span></th></tr>";
 			echo "</table></div>";
 	}
 

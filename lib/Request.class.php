@@ -1,4 +1,6 @@
 <?php
+//this class was orignally take from the course BTI7054 - Web Programming -> Topic 11 - MVC
+//iv'e done alot of changes on it. but it was the starter
 class Request {
 
 	private $parameters;

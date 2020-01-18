@@ -1,4 +1,7 @@
 <?php
+//this file is similar to the one in  BTI7054 Topic 11 - MVC
+//some changes were made on it
+
 	// Returns a certain GET parameter or $default if the parameter
 	// does not exist.
 	function get_param($name, $default) {

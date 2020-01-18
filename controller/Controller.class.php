@@ -1,4 +1,6 @@
 <?php
+//this class was orignally taken from the course BTI7054 - Web Programming -> Topic 11 - MVC
+//iv'e done alot lot of changes on it. but it was the starter.
 class Controller {
 
 	private $data = array();
@@ -18,6 +20,8 @@ class Controller {
 
 	public function login(Request $request)
 	{
+			$this->title = $this->t('Login');
+			if(!$this->isLoggedIn()){
 			$login = $request->getParameter('name', '');
 			$pwd= $request->getParameter('password', '');
 			$validName = User::checkName($login);
@@ -34,21 +38,29 @@ class Controller {
 			$_SESSION['user'] = $login;
 			$_SESSION['type'] = $user->getType();
 			$_SESSION['id'] = $user->getId();
-			$this->data["message"] = "Hi " . ucfirst($login) . " you just logged in!";
+			$this->data["message"] = "Hi you just logged in!";
+			//ucfirst($login)
 			return 'home';
 		}
-
+}else {
+	$this->data["message"] = "you already logged in!";
+	return 'home';
+}
 }
 
 
 
 	public function logout(Request $request) {
+		if($this->isLoggedIn()){
 		$this->startSession();
 		session_destroy();
 		unset($_SESSION['user']);
 		$_SESSION = array();
-		$this->data["message"] = "Und Tschüsss!";
+		$this->data["message"] = "See you soon!";
 		return 'home';
+		}else{
+		return 'login';
+	}
 	}
 
 
@@ -81,6 +93,7 @@ class Controller {
 		$this->title = "Products";
 		$this->data["products"] = Product::getAllProducts();
 	}else{
+		$this->data["message"] = "please login first!";
 		return 'login';
 	}
 	}
@@ -90,6 +103,7 @@ class Controller {
 		$this->title = "Orders";
 		$this->data["orders"] = Order::getAllProducts();
 	}else{
+		$this->data["message"] = "please login first!";
 		return 'login';
 	}
 }
@@ -106,7 +120,7 @@ class Controller {
 
 
 	public function delete_product(Request $request){
-
+		if($this->isAdmin()){
 			$id = $request->getParameter('id',0);
 			$product = Product::delete($id);
 			if (!$product) {
@@ -115,8 +129,10 @@ class Controller {
 			$this->data["message"] = "Product deleted successfully!";
 
 			return $this->externalRedirect('index.php?action=list_products_admin');
-
-			//return $this->internalRedirect('products', $request);
+}else{
+	$this->data["message"] = "please login first!";
+	return 'login';
+}
 	}
 
 
@@ -134,6 +150,7 @@ class Controller {
 
 	//Edit products
 	public function update_product(Request $request) {
+		if($this->isAdmin()){
 		$values = $request->getParameter('product', array());
 		$product = Product::getProductById($values['id']);
 		if (!$product) {
@@ -143,14 +160,19 @@ class Controller {
 		$product->save();
 		$this->data["message"] = "products updated successfully!";
 
-		//$this->externalRedirect('index.php?action=list_students');
 
 		return $this->internalRedirect('list_products_admin', $request);
+	}else{
+		$this->data["message"] = "please login first!";
+		return 'login';
+	}
+
 	}
 
 
 
 	public function signupUser(Request $request){
+		if(!$this->isLoggedIn()){
 		$values = $request->getParameter('user', array());
 		$username = $values['username'];
 		$email = $values['email'];
@@ -163,12 +185,11 @@ class Controller {
 		$emailExist= User::emailExist($email);
 
 		if(empty($username) || empty($email) || empty($password) || empty($rePassowrd)){
-			//header("Location: ../register.php?error=emptyFields&username=".$values['username']."&email=".$values['email']);
 			$this->data["message"] = "All fields must be filled!";
 			return 'register';
 			exit();
 		} else if(!$validName){
-			$this->data["message"] = "wrong name";
+			$this->data["message"] = "Invalid name!";
 			return 'register';
 			exit();
 		}
@@ -178,12 +199,12 @@ class Controller {
 			exit();
 		}
 		else if($emailExist){
-			$this->data["message"] ="E-Mail is already exist!";
+			$this->data["message"] ="E-Mail adress is already exist!";
 			return 'register';
 			exit();
 		}
 		 else if(!$validEmail){
-			$this->data["message"] ="invalid email";
+			$this->data["message"] ="Invalid emailadress!";
 			return 'register';
 			exit();
 		} else if(!$validpwd){
@@ -201,18 +222,21 @@ class Controller {
 						return $this->page404();
 				 }
 
-		$this->data['message'] = "User created successfully!";
-		return 'home';
+		$this->data['message'] = "Account created successfully!";
+		return 'login';
 	}
+}else {
+	return 'home';
+}
 }
 
 
-
-
-
-
 	public function register(Request $request) {
+		if(!$this->isLoggedIn()){
 		$this->title = "signup";
+	}else{
+		return 'home';
+	}
 	}
 
 	public function addProduct(Request $request) {
@@ -253,19 +277,6 @@ class Controller {
 
 
 
-/*	public function user_Profile(Request $request)
-{
-		if (!$this->isLoggedIn()) {
-				$this->data['message'] = "To update a User, please login first!";
-				return 'login';
-		}
-		$this->title = "Profile";
-		$this->data["message"] = "Hello World!";
-}
-*/
-
-
-
 public function isAdmin()
 {
 		$this->startSession();
@@ -275,10 +286,6 @@ public function isAdmin()
 				return $_SESSION['type']=='admin';
 		}
 }
-
-
-
-
 
 
 	public function list_users(Request $request)
@@ -328,10 +335,7 @@ public function isAdmin()
 
 	public function update_user_self(Request $request)
 {
-		/* if (!$this->isAdmin()) {
-				 $this->data['message'] = "To update a User, please login first!";
-				 return 'login';
-		 }*/
+
 		$values = $request->getParameter('user', array());
 		$user = User::getUserById($values['id']);
 		$username = $values['username'];
@@ -348,27 +352,26 @@ public function isAdmin()
 		$oldName = $user->getUsername();
 
 		if(empty($username) || empty($email) || empty($password) || empty($rePassowrd)){
-			//header("Location: ../register.php?error=emptyFields&username=".$values['username']."&email=".$values['email']);
 			$this->data["message"] = "All fields must be filled!";
 			return $this->internalRedirect('edit_user_self', $request);
 			exit();
 		}
 	else if(!$validName){
-		$this->data["message"] = "wrong name";
+		$this->data["message"] = "Invalid name!";
 		return $this->internalRedirect('edit_user_self', $request);
 		exit();
 	}
 		 else if(!$validEmail){
-			$this->data["message"] ="invalid email";
+			$this->data["message"] ="Invalid emailadress!";
 			return $this->internalRedirect('edit_user_self', $request);
 			exit();
-		} /*else if(!$validpwd){
+		} else if(!$validpwd){
 			$this->data["message"] ="Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.";
 			return 'register';
 			exit();
-		}*/
+		}
 			else if($password != $rePassowrd){
-			$this->data["message"] ="passwords dosent match";
+			$this->data["message"] ="passwords dosent match!";
 			return $this->internalRedirect('edit_user_self', $request);
 			exit();
 		}
@@ -379,26 +382,14 @@ public function isAdmin()
 		$user->update($values);
 		$user->save();
 		$this->data['message'] = "User updated successfully!";
-		//return 'list_students';
-		// external redirect
-		//header('Location: index.php?action=list_students');
-		//exit();
-		//internal page redirect
 		return $this->internalRedirect('edit_user_self', $request);
 }
 }
 
 
-
-
-
-
 	public function update_user(Request $request)
 {
-		/* if (!$this->isAdmin()) {
-				 $this->data['message'] = "To update a User, please login first!";
-				 return 'login';
-		 }*/
+
 		$values = $request->getParameter('user', array());
 		$user = User::getUserById($values['id']);
 		if (!$user) {
@@ -407,11 +398,7 @@ public function isAdmin()
 		$user->update($values);
 		$user->save();
 		$this->data['message'] = "User updated successfully!";
-		//return 'list_students';
-		// external redirect
-		//header('Location: index.php?action=list_students');
-		//exit();
-		//internal page redirect
+
 		return $this->internalRedirect('list_users', $request);
 }
 
@@ -467,17 +454,47 @@ public function place_order(Request $request){
 	$phonenumber = $values['phonenumber'];
 	$products = $values['products'];
 	$price = $values['total'];
+
+	if(!preg_match("/^[a-zA-Z ]*$/",$firsntname)){
+		$this->data['message'] = "Invalid Firstname!";
+		return "order";
+	}
+	else if(!preg_match("/^[a-zA-Z ]*$/",$lasatname)){
+		$this->data['message'] = "Invalid Lastname!";
+		return "order";
+	}
+	else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$this->data['message'] = "Invalid emailadress!";
+		return "order";
+	}
+
+	else if(!preg_match("/^[a-zA-Z0-9_ -]*$/",$street)){
+		$this->data['message'] = "Invalid street!";
+		return "order";
+	}
+	else if(!preg_match("/^[0-9]{4}$/",$plz)){
+		$this->data['message'] = "Invalid postalcode!";
+		return "order";
+	}
+	else if(!preg_match("/^[a-zA-Z ]*$/",$city)){
+		$this->data['message'] = "Invalid city!";
+		return "order";
+	}
+	else if(!preg_match("/^(?:0|\(?\+41\)?\s?|0041\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",$phonenumber)){
+		$this->data['message'] = "Invalid Phonenumber!";
+		return "order";
+	}else{
 	$order = Order::insert_order($values);
 	if (!$order) {
 			return $this->page404();
 	 }
-	 	 return $this->externalRedirect('index.php?action=orderConform');
+	 $this->startSession();
+	 unset($_SESSION['cart']);
+	 $this->data['message'] = "Thank you for you purchase, your order has been received and will be processed immediately.";
+	 	return 'home';
+}
 }
 
-
-public function orderConform(){
-	return 'order_conformation';
-}
 
 
 public function add_product(Request $request){
@@ -543,7 +560,6 @@ public function delete_item(Request $request)
 		$this->startSession();
 		$cart = $_SESSION['cart'];
 		$cart->removeItem($id, $amount);
-		//external redirect
 		return "shopping_cart";
 }
 
@@ -610,7 +626,6 @@ public function delete_item(Request $request)
 
 
 	    public function t($key) {
-	    $this->gen_lang();
 	    if ($this->lang == 'de' && isset($this->trans[$key])) {
 	      return $this->trans[$key];
 	    } else {
@@ -619,8 +634,7 @@ public function delete_item(Request $request)
 	  }
 
 	    public function gen_lang(){
-	//    $langNow = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : $this->lang;
-	        $fn = $_SERVER["DOCUMENT_ROOT"].'/shop2/assets/messages/lang_de.txt';
+	        $fn = $_SERVER["DOCUMENT_ROOT"].'/momac/assets/messages/lang_de.txt';
 	        $file = file($fn);
 	        foreach($file as $line) {
 	            list($key, $val) = explode('=', $line);
@@ -629,5 +643,3 @@ public function delete_item(Request $request)
 	    }
 
 }
-
-/////////////lanuage

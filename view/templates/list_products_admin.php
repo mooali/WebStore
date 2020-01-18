@@ -1,6 +1,5 @@
 <div class="products">
-	<h5><?php echo isset($message) ? $message : ''; ?></h5>
-	<?php
+		<?php
 		echo "<table class=\"table_admin\">
 						 <tr class=\"admin_table_head\">
 								 <th>ID</th>

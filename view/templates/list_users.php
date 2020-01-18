@@ -1,5 +1,8 @@
 <div class="users">
 	<h3><?php echo $this->controller->t('Users'); ?></h3>
+	<div id="welcome-msg">
+		<?php echo isset($message) ? "<h5>".$this->controller->t($message)."</h5>" : ""; ?>
+	</div>
 	<?php echo "<table class=\"table_admin\">
 					 <tr class=\"admin_table_head\">
 							 <th>ID</th>
@@ -8,7 +11,6 @@
 							 <th>".$this->controller->t('Type')."</th>
 							 <th>".$this->controller->t('Settings')."</th>
 					 </tr>" ?>
-	<h5><?php echo isset($message) ? $message : ''; ?></h5>
 	<?php
 	foreach($users as $user) {
 		$id = $user->getId();

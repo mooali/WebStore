@@ -3,13 +3,15 @@
 /**
  *
  */
+ //this class is similar to the Student.class.php from ->  BTI7054 Topic 11 - MVC
+  //iv'e done alot of changes on it. but it was the starter
 class Product {
 
   private $id;
   private $name;
   private $cpu;
-  private $graphic;
-  private $hddssd;
+  private $graphic_card;
+  private $hdd_ssd;
   private $ram;
   private $connections;
   private $type;
@@ -27,11 +29,11 @@ class Product {
 }
 
 public function getGraphic(){
-  return $this->graphic;
+  return $this->graphic_card;
 }
 
 public function getHddSsd(){
-  return $this->hddssd;
+  return $this->hdd_ssd;
 }
 
 public function getPrice() {
@@ -147,11 +149,11 @@ public function update($values) {
   $db = DB::getInstance();
   $this->name = $db->escape_string($values['name']);
   $this->cpu = $db->escape_string($values['cpu']);
-  $this->graphic = $db->escape_string($values['graphic']);
-  $this->hddssd = $db->escape_string($values['hddssd']);
+  $this->graphic_card = $db->escape_string($values['graphic']);
+  $this->hdd_ssd = $db->escape_string($values['hddssd']);
   $this->ram = $db->escape_string($values['ram']);
   $this->connections = $db->escape_string($values['connections']);
-  $this->typ = $db->escape_string($values['type']);
+  $this->type = $db->escape_string($values['type']);
   $this->image = $db->escape_string($values['image']);
   $this->price = (double)$values['price'];
 }
@@ -161,14 +163,14 @@ public function save(){
   $sql = sprintf("UPDATE products SET
     name='%s', cpu='%s', graphic_card='%s', hdd_ssd='%s', ram='%s', connections= '%s', type='%s', image='%s', price='%d'
      WHERE id= %d;",
-     $this->name, $this->cpu, $this->graphic, $this->hddssd, $this->ram,$this->connections, $this->type, $this->image, $this->price, $this->id);
+     $this->name, $this->cpu, $this->graphic_card, $this->hdd_ssd, $this->ram,$this->connections, $this->type, $this->image, $this->price, $this->id);
   $res = DB::doQuery($sql);
   return $res != null;
 }
 
 
   public function __toString(){
-  return sprintf("%d %s,%s,%s,%s,%s %s, %s, %s, %d", $this->id,$this->name, $this->cpu, $this->graphic, $this->hddssd, $this->ram,
+  return sprintf("%d %s,%s,%s,%s,%s %s, %s, %s, %d", $this->id,$this->name, $this->cpu, $this->graphic_card, $this->hdd_ssd, $this->ram,
        $this->connections, $this->type, $this->image, $this->price);
 }
 

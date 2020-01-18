@@ -1,5 +1,10 @@
 
 <?php
+
+
+//this class is similar to the User.class.php from ->  BTI7054 Topic 11 - MVC	
+ //iv'e done alot of changes on it. but it was the starter
+
 class User
 {
 	private $id;
@@ -116,7 +121,7 @@ class User
 
 	public function save()
 	{
-			$password = md5($this->$pwd.PASSWORD_DEFAULT); //encrypt the input password
+			$password = md5($this->pwd.PASSWORD_DEFAULT); //encrypt the input password
 			$sql = sprintf("UPDATE users SET username='%s', email='%s', pwd='%s', type='%s' WHERE id = %d;", $this->username, $this->email, $password, $this->type, $this->id);
 			$res = DB::doQuery($sql);
 			return $res != null;
@@ -181,7 +186,7 @@ class User
 
 
 	public static function checkName($username){
-		if (!preg_match("/^[a-zA-Z ]*$/",$username)){
+		if (!preg_match("/^[a-zA-Z0-9_ -]*$/",$username)){
 			 return false;
 		} else {
 			return true;
@@ -198,15 +203,24 @@ class User
 
 
 	public static function checkPassword($password){
-		$uppercase = preg_match('@[A-Z]@', $password);
-		$lowercase = preg_match('@[a-z]@', $password);
+		//$uppercase = preg_match('@[A-Z]@', $password);
+		$pass = preg_match('/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/',$password);
+		/*$lowercase = preg_match('@[a-z]@', $password);
 		$number    = preg_match('@[0-9]@', $password);
 		$specialChars = preg_match('@[^\w]@', $password);
 		if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)<8) {
 			return false;
-		}else {
+		}
+		else {
 			return true;
 		}
+		*/
+		if(!$pass){
+			return false;
+		}else{
+			return true;
+		}
+
 	}
 
 }

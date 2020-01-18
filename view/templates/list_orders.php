@@ -7,8 +7,10 @@
                <th>User_ID</th>
                <th>Name</th>
                <th>E-Mail</th>
-               <th>Address</th>
+							 <th>".$this->controller->t('Phonenumber')."</th>
+							 <th>".$this->controller->t('Address')."</th>
                <th>".$this->controller->t('Products')."</th>
+							 <th>".$this->controller->t('Preic')."</th>
 							 <th>".$this->controller->t('Settings')."</th>
            </tr>";
            ?>
@@ -33,8 +35,10 @@ echo "
                  <th>$user_id</th>
                  <th>$firstname,$lastname</th>
                  <th>$email</th>
-                 <th>$street,$plz,$city</th>
+								 <th>$phonenumber</th>
+                 <th>$street<br>$plz,$city</th>
                  <th>$products</th>
+								 <th>$price CHF</th>
                  <th><a href=\"index.php?action=delete_order&id=$id\">".$this->controller->t('Delete')."</a></th>
             </tr>";
 

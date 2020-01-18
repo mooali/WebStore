@@ -1,6 +1,9 @@
 <div class="products">
 
 	<h3><?php echo $this->controller->t('Products'); ?></h3>
+<div class="kategorie">
+	<a class="form_container_submit" href="index.php?action=notebooks"><?php echo $this->controller->t('Show only Notebooks'); ?></a>
+</div>
 	<h5><?php echo isset($message) ? $message : ''; ?></h5>
 
 	<?php if(empty($smartphones)): ?>
